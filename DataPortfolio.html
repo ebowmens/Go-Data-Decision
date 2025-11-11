@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Analysis Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>My Systematic Data Analysis Portfolio</h1>
+        <p>Analysis of Student English Test Scores (2024)</p>
+        <i class="fas fa-chart-line logo-icon"></i>
+    </header>
+            
+    <main>
+        <h2>Systematic Approach to Data Analysis (SPSS)</h2>
+
+        <section id="entry">
+            <h3>1. Data Entry and Definition 💾</h3>
+            <p>The process began by loading the dataset, <strong>'Analysing_data.sav'</strong>, and defining key variables. The raw test scores (English2024) were prepared for transformation, and a new variable, <strong>English_Grades</strong>, was given the label 'English test scores'.</p>
+            <pre><code>FILE='C:\...\Analysing_data.sav'.
+VARIABLE LABELS English_Grades 'English test scores'.</code></pre>
+        </section>
+
+        <section id="cleaning">
+            <h3>2. Data Cleaning and Transformation ✨</h3>
+            <p>The variable **English2024** was **transformed** (recoded) into the categorical **English_Grades** using the `RECODE` command, grouping scores into distinct letter grades (A, B, C, D). Data quality was high, as initial analysis showed **N=20 Valid** cases and **0 Missing** values for the core variables.</p>
+            <pre><code>RECODE English2024 (80 thru 100=1) (70 thru 79=2) (...) INTO English_Grades.</code></pre>
+        </section>
+
+        <section id="analysis">
+            <h3>3. Data Analysis and Visualization 🔬</h3>
+            <p>Multiple statistical analyses were performed using the SPSS commands:</p>
+            <ul>
+                <li><strong>Frequencies and Visualization:</strong> Used to show the distribution of **English_Grades** (e.g., 40.0% of students achieved an 'A' grade), visually represented by a Bar Chart (`GGRAPH`).</li>
+                <li><strong>Correlation:</strong> A Pearson Correlation (`CORRELATIONS`) showed a **strong positive relationship** between students' **Confidence\_level** and their **English2024** score (*r* = .771, *p* < .001).</li>
+                <li><strong>Partial Correlation:</strong> Examined the relationship between Total Class Attendance and English2024, controlling for Confidence\_level.</li>
+                <li><strong>Independent Samples t-Test:</strong> Compared mean **English2024** scores by **Gender**, finding a **significant difference** (*t*(18) = -2.592, *p* = .018), with females scoring higher (Mean=79.30) than males (Mean=67.80).</li>
+                <li><strong>Paired Samples t-Test:</strong> Compared **English2024** to **English2023** scores, showing a highly **significant mean improvement** of 40.40 points (*t*(19) = 17.545, *p* < .001).</li>
+            </ul>
+        </section>
+        
+        <section id="results">
+            <h3>4. Summary of Key Findings 📈</h3>
+            <p>The primary results indicate: 1) Student confidence is strongly linked to performance. 2) There is a significant, positive change in test scores from 2023 to 2024. 3) A notable gender gap exists, with female students outperforming male students in the 2024 test.</p>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Data compiled and analyzed using SPSS commands. The final dataset was saved using the `SAVE OUTFILE` command.</p>
+    </footer>
+</body>
+</html>
